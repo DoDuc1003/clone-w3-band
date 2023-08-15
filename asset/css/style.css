@@ -32,36 +32,123 @@ html {
 #header {
     height: 46px;
     background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
-
 #nav {
-
-}
-
-#nav li {
     display: inline-block;
 }
 
-#nav li a {
+#nav , .subnav{
+    list-style-type: none;
+}
+
+#nav > li {
+    display: inline-block;
+}
+
+#nav li {
+    /* display: inline-block; */
+    position: relative;
+}
+
+
+
+#nav > li > a {
     color: #ffffff;
+    text-transform: uppercase;
+}
+
+#nav li a {
     text-decoration: none;
     line-height: 46px;
     padding-left: 24px;
     padding-right: 24px;
+    display: block;
+    
 }
 
-#nav li:hover a {
+#nav li:hover .subnav{
+    display: block;
+}
+
+#nav > li:hover > a {
     color: #000000;
     background-color: #cccccc;
     display: inline-block;
 }
 
+
 #nav .subnav {
     display: none;
+    min-width: 160px;
+    position: absolute;
+    background-color: #c38d8d;
+    box-shadow: 0, 0, 30px, rgba(0, 0, 0, 0.9); 
+    top: 100%;
+}
+
+#nav.subnav a {
+    color: black;
+
+    line-height: 38px;
+    
+    
+}
+
+#nav .nav-arrow-down {
+    font-size: 14px;
+}
+
+#nav .subnav li:hover {
+    color: #000;
+    background-color: #ccc;
+}
+
+#header .search-button {
+    float: right;
+    padding: 0 21px;
+
+}
+
+#header .search-button:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+#header .search-icon {
+    color:white;
+    font-size: 30px;
+    line-height: 46px;
 }
 
 #slider {
-    
+    position: relative;
+    padding-top: 50%;
+    margin-top: 46px;
+    background: url('/asset/image/slider/ny.jpg') top center / cover no-repeat;
+}
+
+#slider .text-content {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 47px;
+    text-align: center;
+}
+#slider .text-heading {
+    font-weight: 1400;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+#slider .text-description {
+    font-size: 15px;
+    margin-top: 15px;
 }
 
 #content {
