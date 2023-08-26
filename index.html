@@ -113,7 +113,7 @@
                                 <h3 class="place-heading">New York</h3>
                                 <p class="place-time">Fri 27 Nov 2016</p>
                                 <p class="place-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-button">Buy Tickets</a>
+                                <button class="place-buy-button js-buy-ticket">Buy Tickets</button>
                             </div>
                         </div>
 
@@ -123,7 +123,7 @@
                                 <h3 class="place-heading">Paris</h3>
                                 <p class="place-time">Sat 28 Nov 2016</p>
                                 <p class="place-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-button">Buy Tickets</a>
+                                <button class="place-buy-button js-buy-ticket">Buy Tickets</button>
                             </div>
                         </div>
 
@@ -133,7 +133,7 @@
                                 <h3 class="place-heading">San Francisco</h3>
                                 <p class="place-time">Sun 29 Nov 2016</p>
                                 <p class="place-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-button">Buy Tickets</a>
+                                <button class="place-buy-button js-buy-ticket">Buy Tickets</button>
                             </div>
                         </div>
 
@@ -157,6 +157,82 @@
         <div id="footer">
             
         </div>
+
+        
     </div>
+
+    <div class="modal">
+        <div class="modal-container js-modal-container">
+            <div class="modal-close js-modal-close">
+                <i class="ti-close">
+                </i>
+            </div>
+
+            <header class="modal-header">
+                <i class="model-heading-icon ti-bag"></i>
+                Tickets
+            </header>
+
+            <div class="modal-body">
+                <label for="ticket-quantity" class="modal-label">
+                    <i class="ti-shopping-cart"></i>
+                    Tickets, $15 per person
+                </label>
+                
+                <input id="ticket-quantity" type="text" class="modal-input" placeholder="How many?">
+
+                <label for="ticket-email" class="modal-label">
+                    <i class="ti-user"></i>
+                    Send to
+                </label>
+                
+                <input id="ticket-email" type="text" class="modal-input" placeholder="Email">
+
+                <button id="buy-tickets">
+                    Pay <i class="ti-check"></i>
+                </button>
+            </div>
+
+            <footer class="modal-footer">
+                <p class="modal-help">
+                    Need
+                    <a href="">
+                        help?
+                    </a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        let buy_buttons = document.querySelectorAll('.js-buy-ticket');
+        let modal = document.querySelector('.modal')
+        let modal_container = document.querySelector('.js-modal-container')
+        let modal_close = document.querySelector('.js-modal-close')
+
+        // hiển thị bảng mua vé : thêm class open
+        function showBuyTicket() {
+            modal.classList.add('open')
+        }
+
+        //ẩn bảng mua vé : loại bỏ class remove
+        function hideBuyTickets() {
+            modal.classList.remove('open')
+        }
+
+        // nghe hành vi click 
+        for(let button of buy_buttons){
+            button.addEventListener('click', showBuyTicket)
+        }
+        
+        // nghe hành vi click để ẩn đi 
+        modal_close.addEventListener('click', hideBuyTickets)
+
+        modal.addEventListener('click', hideBuyTickets)
+
+        modal_container.addEventListener('click', function(event) {
+            event.stopPropagation()
+        })
+    </script>
 </body>
 </html>
